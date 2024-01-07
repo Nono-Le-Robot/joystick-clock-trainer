@@ -27,7 +27,6 @@ let rotationFactor = 1;
 let timeToRevo = 1
 let collision = false;
 let score = 0;
-let scoreToDisplay = (score / 10).toFixed(2)
 let scoreMultiplier = 1;
 
 
@@ -70,14 +69,13 @@ function applyDeadzone(value, deadzone){
 function checkCollision() {
     const distance = Math.sqrt((indicatorX - joystick.x) ** 2 + (indicatorY - joystick.y) ** 2);
     if (distance < joystick.radius + point.size) {
-        score =  score + scoreMultiplier;
         collision = true
+        score =  score + scoreMultiplier;
     }
     else {
         collision = false
-        score = score - scoreMultiplier
     }
-    scoreLabel.textContent = `Score: ${scoreToDisplay}`;   
+    scoreLabel.textContent = `Score: ${(score / 10).toFixed(2)}`;   
 }
 
 function animateJoystick() {
