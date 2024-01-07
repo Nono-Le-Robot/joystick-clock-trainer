@@ -7,10 +7,12 @@
     <title>PS5 Joystick Animation</title>
 </head>
 <body>
-    <canvas id="joystickCanvas" width="400" height="400"></canvas>
+    <canvas id="joystick-canvas" width="400" height="400"></canvas>
     <div id="controls">
-        <span id="scoreLabel">Score: 0</span>
-        <span id="speedLabel">1 Rotation = 1s</span>
+        <br>
+        <span id="time-label">Time : 0s</span>
+        <span id="score-label">Score: 0</span>
+        <br>
         <div id="btn">
             <div id="btn-speed-up">
                 <p>Vitesse +</p>
@@ -19,6 +21,7 @@
                 <p>Vitesse -</p>
             </div>
         </div>
+        <span id="speed-label">1 Rotation = 1s</span>
     </div>
     <script src="./js/drawer.js"></script>    
     <script src="./js/script.js"></script>

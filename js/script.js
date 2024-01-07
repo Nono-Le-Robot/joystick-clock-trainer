@@ -1,8 +1,9 @@
-const canvas = document.getElementById('joystickCanvas');
-const scoreLabel = document.getElementById('scoreLabel');
-const speedLabel = document.getElementById('speedLabel');
+const canvas = document.getElementById('joystick-canvas');
+const scoreLabel = document.getElementById('score-label');
+const speedLabel = document.getElementById('speed-label');
 const speedUpBtn = document.getElementById('btn-speed-up');
 const speedDownBtn = document.getElementById('btn-speed-down');
+const timeLabel = document.getElementById('time-label');
 
 const ctx = canvas.getContext('2d');
 
@@ -28,6 +29,14 @@ let timeToRevo = 1
 let collision = false;
 let score = 0;
 let scoreMultiplier = 1;
+let timer = 0;
+let timerPause = true;
+
+function timerUpdate() {
+    setInterval(() => {
+        timer++
+    }, 1000);
+}
 
 
 function handleGamepadInput() {
@@ -54,11 +63,16 @@ function handleGamepadInput() {
             ctx.fillStyle = "#FF0000";
             ctx.fill();
         }
+        else{
+            timerPause=false;
+            timeLabel.textContent = `Time : ${timer}s`;
+        }
     }
 }
 
 function joystickAtCenter(joystickX, joystickY) {
     const isAtCenter = joystickX === 0 && joystickY === 0 ? true : false;
+    timerPause = true;
     return isAtCenter;
 }
 
@@ -110,4 +124,5 @@ function changeSpeed(){
 }
 
 animateJoystick();
+timerUpdate();
 changeSpeed();

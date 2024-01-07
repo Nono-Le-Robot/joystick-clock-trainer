@@ -36,7 +36,7 @@ button {
     gap: 2rem;
 }
 
-#scoreLabel {
+#score-label, #time-label, #speed-label {
     font-size: 40px;
     margin-right: 10px;
 }
